@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "rooms": {
+      "$code": {
+        ".read": true,
+        ".write": "!data.exists() || (data.child('status').val() != 'finished' && newData.exists())",
+        ".validate": "newData.hasChildren(['status','players','host','turn','round','phase']) && newData.child('players').numChildren() <= 4"
+      }
+    }
+  }
+}
